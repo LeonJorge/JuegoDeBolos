@@ -12,7 +12,7 @@ public class JuegoDeBolos {
 	}
 	public int calcularScore()
 	{
-		for(int casillero=0;casillero<10;casillero++)
+		for(int casillero=0;casillero<21;casillero++)
 		{
 			score=score+lanzamientos[casillero];
 		}
