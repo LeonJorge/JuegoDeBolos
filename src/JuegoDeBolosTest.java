@@ -25,5 +25,16 @@ public class JuegoDeBolosTest {
 		realizarNLanzamientos(1,20);
 		assertEquals(20,juego.calcularScore());
 	}
+	@Test
+	public void elScoreDeberiaDetectarUnSpareEnLosTiros(){
+		realizarLanzamientoSpare();
+		juego.realizarLanzamiento(3);
+		realizarNLanzamientos(0,17);
+		assertEquals(16,juego.calcularScore());
+	}
+	private void realizarLanzamientoSpare() {
+		juego.realizarLanzamiento(5);
+		juego.realizarLanzamiento(5);	
+	}
 }
 	

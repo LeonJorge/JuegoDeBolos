@@ -19,12 +19,21 @@ public class JuegoDeBolos {
 		int casillaCentral=0;
 		for(int casillero=0;casillero<10;casillero++)
 		{
-			totalScore=totalScore+sumaDeLosLanzamientos(casillaCentral);
+			if(esSpare(casillero))
+				totalScore=totalScore+10+lanzamientos[casillero+2];		
+			else
+				totalScore=totalScore+sumaDeLosLanzamientos(casillaCentral);
 			casillaCentral+=2;
 		}
 		return totalScore;
 	}
 	private int sumaDeLosLanzamientos(int casillaCentral){
 		return lanzamientos[casillaCentral]+lanzamientos[casillaCentral+1];
+	}
+	private boolean esSpare(int casillero){
+		if(lanzamientos[casillero]+lanzamientos[casillero+1]==10)
+			return true;
+		else
+			return false;
 	}
 }
