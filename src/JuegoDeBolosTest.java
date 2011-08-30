@@ -36,5 +36,27 @@ public class JuegoDeBolosTest {
 		juego.realizarLanzamiento(5);
 		juego.realizarLanzamiento(5);	
 	}
+	private void realizarLanzamientoStrike(){
+		juego.realizarLanzamiento(10);
+	}
+	@Test
+	public void elScoreDeberiaDetectarUnStrikeEnLosTiros(){
+		realizarLanzamientoStrike();
+		juego.realizarLanzamiento(3);
+		juego.realizarLanzamiento(4);
+		assertEquals(17,juego.calcularScore());
+	}
+	@Test
+	public void elScoreDeberiaDetectarUnDosStrikesNoConsecutivos(){
+		realizarLanzamientoStrike();
+		juego.realizarLanzamiento(3);
+		juego.realizarLanzamiento(4);
+		juego.realizarLanzamiento(4);
+		realizarLanzamientoStrike();
+		juego.realizarLanzamiento(3);
+		juego.realizarLanzamiento(4);
+		realizarNLanzamientos(0,13);
+		assertEquals(38,juego.calcularScore());
+	}
 }
 	
